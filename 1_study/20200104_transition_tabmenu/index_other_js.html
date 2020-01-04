@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>navigation-javascript버전 https://jsbin.com/wolucar/edit?html,output </title>
+<style>
+	*{padding: 0;margin: 0;text-decoration: none;list-style: none;}
+	nav{position: fixed;left: 0;top: 0;width: 100%;background: #fff;box-shadow: 0 0 5px rgba(0,0,0,.5);}
+	nav div{display: flex;position: relative;width: 500px;margin: 0 auto;}
+	nav div a{flex: 1;display: block;height: 40px;line-height: 40px;text-align: center;color: #8f8f8f}
+	nav div > span{position: absolute;left: 0;bottom: 0;width: 100px;height: 3px;background: #279d76;transition: all .5s;}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("nav a").click(function(){
+		var _this = $(this);
+		var count = 0;
+		var widthspan = $("nav div > span").css("width").replace("px","");//maybe 100;
+		$(this).parent().children().each(function(){
+			if(_this.html() === $(this).html()){
+				$("nav div > span").css({left: widthspan*count+"px",opacity: 1});
+				$(this).css({color:"#000"}).siblings().css({color:"#8f8f8f"});
+			}
+			count++;
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<nav>
+		<div>
+			<a href="#a"><span>1</span></a>
+			<a href="#a"><span>2</span></a>
+			<a href="#a"><span>3</span></a>
+			<a href="#a"><span>4</span></a>
+			<a href="#a"><span>5</span></a>
+			<span></span>
+		</div>
+	</nav>
+</body>
+</html> 

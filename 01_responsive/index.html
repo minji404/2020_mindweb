@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- header start -->
+  <div id="wrapper">
+    <header>
+      <div class="menubar">
+        <h1 class="logo"><a href="#">logo</a></h1>
+        <nav>
+          <ul class="clearfix">
+            <li><a href="#">home</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Mainslide -->
+
+      <div class="main-slide">
+        <ul class="clearfix">
+          <li><a href="#"><span>안녕 하세요 <p>홈페이지입니다.</p></span><img src="img/main-slide-img1.jpg" alt=""></img></a></li>
+          <li><a href="#"><span>안녕 하세요 <p>홈페이지입니다.</p></span><img src="img/main-slide-img2.jpg" alt=""></img></a></li>
+          <li><a href="#"><span>안녕 하세요 <p>홈페이지입니다.</p></span><img src="img/main-slide-img3.jpg" alt=""></img></a></li>
+          <li><a href="#"><span>안녕 하세요 <p>홈페이지입니다.</p></span><img src="img/main-slide-img4.jpg" alt=""></img></a></li>
+        </ul>
+      </div>
+
+
+    </header>
+    <!-- content start -->
+    <content>
+      <div class="event">
+        <li>event1</li>
+        <li>event2</li>
+        <li>event3</li>
+      </div>
+      <div class="content">
+        <div>
+          <li><a href="#"><img src="img/content-img1.jpg" alt=""></a></li>
+        </div>
+        <div>
+          <li><a href="#"><img src="img/content-img2.jpg" alt=""></a></li>
+        </div>
+        <div>
+          <li><a href="#"><img src="img/content-img3.jpg" alt=""></a></li>
+        </div>
+        <div>
+          <li><a href="#"><img src="img/content-img4.jpg" alt=""></a></li>
+        </div>
+      </div>
+    </content>
+    <!-- footer start -->
+    <footer></footer>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+  // slide left
+    // var slide = 0;
+    // setInterval(function() {
+    //   if (slide < 3) {
+    //     slide++;
+    //   } else {
+    //     slide = 0;
+    //   }
+    //   var slidePosition = slide * (-1280) + "px";
+    //   $(".main-slide").animate({
+    //     left: slidePosition
+    //   }, 400);
+    // }, 2000);
+$(".main-slide li:gt(0)").hide();
+    var current =0;
+    setInterval(function(){
+      var next = (current+1)%4;
+      $(".main-slide").find("li").eq(current).fadeOut();
+      $(".main-slide").find("li").eq(next).fadeIn();
+      current = next;
+    },3000);
+  </script>
+</body>
+
+</html>
